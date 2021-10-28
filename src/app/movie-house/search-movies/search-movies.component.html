@@ -1,1 +1,34 @@
-<p>search-movies works!</p>
+<section>
+    <div class="container">
+        <div role="menubar" class="movie-menubar">
+
+            <app-menubar [routerLink]="linkFromSearchPage" [imageAltText]="backArrorImgAlt" [imageSrc]="imgSrc"
+                [linkText]="searchLinkText">
+            </app-menubar>
+
+            <button class="plot-length-button" type="button" [disabled]="searchMovie.value === ''"
+                (click)="togglePlotLength()">{{isShortPlot ? 'Show Full plot' : 'Show Short plot'}}</button>
+        </div>
+
+        <div role="group" class="input-group">
+            <input #searchMovie type="text" placeholder="Search your movie"
+                (keyup.enter)="searchMovies(searchMovie.value)" />
+
+            <button class="search-movie-button" type="button" (click)="searchMovies(searchMovie.value)">Search</button>
+        </div>
+
+        <div class="searched-movie-section" *ngIf="movies$ | async as movies">
+            <div *ngIf="(movies.Search && movies.Search.length > 0); else errorResponse">
+                <div *ngFor="let movieId of movies.Search | slice:0:5; let i = index">
+                    <app-movie-card [movieId]="movieId.imdbID" [displayMode]="isSearchMode"
+                        [plotLength]="searchPlotLength">
+                    </app-movie-card>
+                </div>
+            </div>
+
+            <ng-template #errorResponse>
+                <p class="error-response">{{movies.Error}}</p>
+            </ng-template>
+        </div>
+    </div>
+</section>

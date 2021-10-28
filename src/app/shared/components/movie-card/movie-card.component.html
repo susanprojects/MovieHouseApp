@@ -1,0 +1,74 @@
+<section>
+    <div class="movie-section container" *ngIf="(movie$ | async) as movie; else loading">
+        <div *ngIf="!movie.Error; else errorMessage" class="movie-card">
+            <div class="movie-poster-section">
+                <div *ngIf="movie.Poster !== NA; else noImage">
+                    <img class="movie-poster" alt="Movie Poster" [src]="movie.Poster" />
+                </div>
+
+                <ng-template #noImage>
+                    <img class="movie-poster" alt="Placeholder Image"
+                        src="../../../../assets/images/placeholder-image.svg" />
+                </ng-template>
+            </div>
+            <div class="movie-details-section">
+                <div *ngIf="movie.Title !== NA" class="movie-title-block">
+                    <span class="movie-title">{{movie.Title}}</span>
+                </div>
+                <div *ngIf="movie.Type !== NA">
+                    <span class="labelStyle">Type:</span>
+                    <span class="movie-type">{{movie.Type}}</span>
+                </div>
+                <div *ngIf="movie.Plot !== NA">
+                    <span class="labelStyle">Plot:</span>
+                    <span class="movie-plot">{{isReadMore ? (movie.Plot | slice:0:200) : movie.Plot}}</span>
+                    <a (click)="showPlotLengthText()">
+                        {{ isReadMore ? '...Read more': 'Read less' }}
+                    </a>
+                </div>
+                <div *ngIf="movie.Year">
+                    <span class="labelStyle">Year:</span>
+                    <span class="movie-year">{{movie.Year}}</span>
+                </div>
+                <div *ngIf="movie.Awards !== NA">
+                    <span class="labelStyle">Awards:</span>
+                    <span class="movie-awards">{{movie.Awards}}</span>
+                </div>
+                <div *ngIf="displayMode === 'isSearchMode'">
+                    <div *ngIf="movie.Rated !== NA">
+                        <span class="labelStyle">Rated:</span>
+                        <span class="movie-rated">{{movie.Rated}}</span>
+                    </div>
+                    <div *ngIf="movie.Genre !== NA">
+                        <span class="labelStyle">Genre:</span>
+                        <span class="movie-genre">{{movie.Genre}}</span>
+                    </div>
+                    <div *ngIf="movie.Director !== NA">
+                        <span class="labelStyle">Director:</span>
+                        <span class="movie-director">{{movie.Director}}</span>
+                    </div>
+                    <div *ngIf="movie.Actors !== NA">
+                        <span class="labelStyle">Actors:</span>
+                        <span class="movie-actors">{{movie.Actors}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #errorMessage>
+            <div>
+                <p class="error-response">{{movie.Error}}</p>
+            </div>
+        </ng-template>
+    </div>
+
+    <ng-template #loading>
+        <div>
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </ng-template>
+
+</section>

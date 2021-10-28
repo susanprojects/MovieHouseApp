@@ -1,0 +1,28 @@
+$color: white;
+
+.container {
+    flex-direction: column;
+    font-size: 1.5em;
+
+    .movie-menubar {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0.5rem;
+    }
+
+    h2 {
+        font-family: inherit;
+        text-align: center;
+        margin: 0;
+        color: $color;
+    }
+    
+    .featured-movie-section {
+        padding: 1rem;
+    }
+
+    .popular-movies-none {
+        text-align: center;
+        color: $color;
+    }
+}

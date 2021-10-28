@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from '../shared/components/page-not-found/page-not-found.component';
 import { FeaturedMoviesComponent } from './featured-movies/featured-movies.component';
 import { MovieHouseComponent } from './movie-house.component';
 import { SearchMoviesComponent } from './search-movies/search-movies.component';
@@ -19,6 +20,10 @@ const routes: Routes = [
       }
     ],
   },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
 ];
 
 @NgModule({

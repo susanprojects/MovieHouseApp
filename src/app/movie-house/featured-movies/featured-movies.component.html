@@ -1,1 +1,24 @@
-<p>featured-movies works!</p>
+<section>
+    <div class="container">
+        <div role="menubar" class="movie-menubar">
+            <app-menubar [routerLink]="linkFromFeaturePage" [imageAltText]="searchIconImgAlt" [imageSrc]="imgSrc"
+                [linkText]="featureLinkText">
+            </app-menubar>
+        </div>
+
+        <h2>Popular on Movie House</h2>
+
+        <div class="featured-movie-section" *ngIf="movieIds.length > 0; else nonePopularMessage">
+            <div *ngFor="let featureMovieId of movieIds; let i = index">
+                <app-movie-card *ngIf="featureMovieId.movieId" [movieId]="featureMovieId.movieId"
+                    [displayMode]="isFeatureMode" [plotLength]="featurePlotLength"></app-movie-card>
+            </div>
+        </div>
+
+        <ng-template #nonePopularMessage>
+            <div class="popular-movies-none">
+                <p>No popular movies to show</p>
+            </div>
+        </ng-template>
+    </div>
+</section>

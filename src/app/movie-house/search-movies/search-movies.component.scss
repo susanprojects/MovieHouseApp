@@ -1,0 +1,56 @@
+$color: white;
+
+.movie-menubar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    .plot-length-button {
+        border-radius: 0.625rem;
+        height: 2.3rem;
+        font-size: 1em;
+        padding: 0.5em;
+        background-color: #d14141;
+        color: $color;
+        cursor: pointer;
+    }
+}
+
+.input-group {
+    display: flex;
+    margin: 1.5rem;
+    
+    input[type=text] {
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 0.3rem;
+        font-size: 1em;
+        background-color: $color;
+        background-image: url('../../../assets/images/search-magnifying-glass.svg');
+        background-position: 0.9em 0.6em; 
+        background-size: 1.5em;
+        background-repeat: no-repeat;
+        padding: 0.8em 0.7em 0.7em 2.5em;
+        flex: 1 1 auto;
+      }
+
+      button {
+          cursor: pointer;
+      }
+    
+      .search-movie-button {
+          color: $color;
+          background-color: #d14141;
+          border-radius: 0.2rem;
+          font-size: 1rem;
+      }
+}
+
+div.searched-movie-section {
+
+    .error-response {
+        text-align: center;
+        color: $color;
+        font-size: 1.5rem;
+    }
+}
