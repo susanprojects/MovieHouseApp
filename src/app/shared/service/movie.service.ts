@@ -3,24 +3,23 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FeaturedMoviesData, MovieList } from '../movie-details';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { apiKeys } from '../apiKeys';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  apikey: string = '6c3a2d45';
-
   constructor(private http: HttpClient) { }
 
   getMovie(movieId: string, plotLength: string): Observable<MovieList> {
-    return this.http.get<MovieList>(`https://www.omdbapi.com/?i=${movieId}&plot=${plotLength}&apikey=${this.apikey}`)
+    return this.http.get<MovieList>(`https://www.omdbapi.com/?i=${movieId}&plot=${plotLength}&apikey=${apiKeys.OMDB_API_KEY}`)
       .pipe(
         catchError(this.handleError));
   }
 
   getSearchedMovies(movieTitle: string): Observable<FeaturedMoviesData> {
-    return this.http.get<FeaturedMoviesData>(`https://www.omdbapi.com/?s=${movieTitle}&apikey=${this.apikey}`)
+    return this.http.get<FeaturedMoviesData>(`https://www.omdbapi.com/?s=${movieTitle}&apikey=${apiKeys.OMDB_API_KEY}`)
       .pipe(
         map(moviesData => moviesData),
         catchError(this.handleError));

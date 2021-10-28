@@ -10,8 +10,8 @@ export class FeaturedMoviesComponent {
 
   movieIds: FeaturedMovieIds[] = [{ movieId: 'tt0078767' }, { movieId: 'tt3688406' }];
 
-  isFeatureMode: string = DisplayMode.FEATUREMODE;
-  featurePlotLength: PlotLength = PlotLength.FULL;
+  isFeatureMode = DisplayMode.FEATUREMODE;
+  featurePlotLength = PlotLength.FULL;
 
   searchIconImgAlt = 'search Icon';
   linkFromFeaturePage = '/movie-house/search-page';

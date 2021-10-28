@@ -12,10 +12,10 @@ import { MovieService } from 'src/app/shared/service/movie.service';
 export class SearchMoviesComponent {
   movies$!: Observable<FeaturedMoviesData>;
 
-  isSearchMode: string = DisplayMode.SEARCHMODE;
-  isShortPlot: boolean = false;
+  isSearchMode = DisplayMode.SEARCHMODE;
+  isShortPlot = false;
 
-  searchPlotLength: PlotLength = PlotLength.FULL;
+  searchPlotLength = PlotLength.FULL;
 
   backArrorImgAlt = 'go back arrow';
   linkFromSearchPage = '/movie-house/featured-page';

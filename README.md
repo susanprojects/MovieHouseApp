@@ -1,6 +1,17 @@
 # MovieHouse
 
+This is an application from which movies can be easily accessed.
+
+It does the following:
+
+1. It shows the 2 most popular movies on the featured page.
+2. It allows you to search for a movie on the search page and displays the top 5 results from the search query.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
+
+## Pre-requisites
+
+1. Please copy `/src/app/shared/apiKeys.example.ts` to `/src/app/shared/apiKeys.ts` using `cp apiKeys.example.ts apiKeys.ts` and add your api keys .
 
 ## Development server
 

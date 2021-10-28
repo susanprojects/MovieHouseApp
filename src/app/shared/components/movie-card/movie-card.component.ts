@@ -12,23 +12,22 @@ import { MovieService } from '../../service/movie.service';
 export class MovieCardComponent implements OnChanges {
 
   @Input()
-  movieId: string = '';
+  movieId = '';
 
   @Input()
   displayMode!: string;
 
   @Input()
-  plotLength: PlotLength = PlotLength.FULL;
+  plotLength = PlotLength.FULL;
 
-  isReadMore: boolean = true;
+  isReadMore = true;
   movie$!: Observable<MovieList>;
 
-  public NA: string = 'N/A';
+  public NA = 'N/A';
 
   constructor(private movieService: MovieService) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.displayMode = changes?.displayMode?.currentValue;
     this.plotLength = changes?.plotLength?.currentValue;
     this.movie$ = this.movieService.getMovie(this.movieId, this.plotLength).pipe(map(movieData => movieData));
   }

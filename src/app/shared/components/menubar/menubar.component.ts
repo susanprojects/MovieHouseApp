@@ -7,13 +7,13 @@ import { Component, Input } from '@angular/core';
 })
 export class MenubarComponent {
 
-  @Input() routerLink: string = '';
+  @Input() routerLink = '';
 
-  @Input() imageSrc: string = '';
+  @Input() imageSrc = '';
 
-  @Input() imageAltText: string = '';
+  @Input() imageAltText = '';
 
-  @Input() linkText: string = '';
+  @Input() linkText = '';
 
   constructor() { }
 
